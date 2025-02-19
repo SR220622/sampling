@@ -14,6 +14,74 @@ Alter the code so that it is reproducible. Describe the changes you made to the 
 
 ```
 Please write your explanation here...
+# Sampling and Reproducibility in Python
+
+### Examining Sampling Stages in the Model
+
+The code simulates the infection and contact tracing process for events like weddings and brunches. Sampling occurs at multiple stages within the model:
+
+1. **Infection Sampling:**
+   - A random subset of individuals is selected for infection using `np.random.choice`.
+   - The sample size is determined by the `ATTACK_RATE` (10% of total attendees).
+   - The sampling frame consists of all event attendees (200 at weddings, 800 at brunches).
+   - The underlying distribution is uniform, as individuals are selected randomly without replacement.
+
+2. **Primary Contact Tracing Sampling:**
+   - A subset of infected individuals is traced based on a probability defined by `TRACE_SUCCESS` (20%).
+   - The function `np.random.rand(sum(ppl['infected'])) < TRACE_SUCCESS` determines which infected individuals get traced.
+   - The sampling frame is the set of infected individuals.
+   - The distribution follows a Bernoulli process, as each infected person has a fixed probability of being traced.
+
+3. **Secondary Contact Tracing Sampling:**
+   - Events where at least `SECONDARY_TRACE_THRESHOLD` (2) infected individuals were traced are selected.
+   - If an event is selected, all infected attendees are traced.
+   - The sampling frame consists of events with at least two traced infections.
+   - The distribution depends on the clustering of infections within events, making it conditional.
+
+4. **Final Data Aggregation:**
+   - The script computes the proportion of infections and traced cases attributed to weddings vs. brunches.
+   - These proportions are stored in a DataFrame and visualized using histograms.
+   - The final dataset represents repeated samples across simulations, forming an empirical distribution.
+
+### Reproducing Results from the Blog Post
+
+After running `whitby_covid_tracing.py` as is, we compare the graphs to those in Andrew Whitby’s original blog post:
+
+- The overall shape and trend of the distributions are similar, showing a bias in perceived infection sources.
+- The proportions of traced cases attributed to weddings tend to be higher than actual infection proportions, confirming the bias described in the blog.
+- However, since the original script uses random sampling, results may vary slightly between runs.
+
+### Modifying the Simulation for 100 Repetitions
+
+The original script runs 1000 simulations. We modify it to run only 100 simulations:
+
+```python
+results = [simulate_event(m) for m in range(100)]
+```
+
+Observations after multiple runs:
+- The overall trends remain consistent, but the variance in histogram distributions increases.
+- The smaller sample size results in greater fluctuations between runs.
+- The bias in contact tracing is still evident but less stable.
+
+### Improving Reproducibility
+
+To ensure identical results across runs, we introduce a random seed at the beginning of the script:
+
+```python
+np.random.seed(42)
+```
+
+This change affects all random sampling operations, making the simulation deterministic. With this modification:
+- Running the script multiple times produces identical graphs.
+- The conclusions remain the same, reinforcing the idea of biased sampling in contact tracing.
+- This adjustment improves the robustness of analyses derived from the script.
+
+### Conclusion
+
+The simulation effectively models biased sampling in contact tracing. By setting a fixed seed, we ensure reproducibility while preserving the insights from the original model. Reducing the number of iterations highlights the impact of sample size on variability, reinforcing statistical considerations in real-world epidemiological modeling.
+
+
 
 ```
 
