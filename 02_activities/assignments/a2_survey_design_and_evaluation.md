@@ -41,29 +41,60 @@ For the **Canadian General Social Survey on Giving, Volunteering, and Participat
 ## Part A - Survey Design: 
 
 The number of your chosen topic: `#`
+I work in the Human Resources Department at a large tech company. Over the past few months, the company has been experiencing a high turnover rate across many of its departments, specifically within the entry- and lower-level positions. The company wishes to understand why this turnover is happening, and what changes need to occur to improve employee satisfaction
 
 Describe the purpose of your survey:
 ```
-write your answer here...
+The purpose of this survey is to identify the key factors contributing to employee turnover in entry- and lower-level positions within the company. The survey aims to gather insights on job satisfaction, workplace culture, compensation, career growth opportunities, and overall employee experience to inform HR policy improvements and retention strategies.
 ```
 
 Describe your target population, sampling frame, sampling units, and observational units:
 ```
-write your answer here...
+Target Population: Entry- and lower-level employees (current and recently resigned) across various departments.
+
+Sampling Frame: Company HR records, including employee rosters and exit interview lists.
+
+Sampling Units: Individual employees who are either currently employed or have left the company within the last six months.
+
+Sampling Strategy: Stratified random sampling to ensure representation across different departments and job functions.
 ```
 
 Your 5-10 question survey:
 ```
-1. write your question here...
-2. write your question here...
-3. write your question here...
-4. write your question here...
-5. write your question here...
-6. write your question here... (optional)
-7. write your question here... (optional)
-8. write your question here... (optional)
-9. write your question here... (optional)
-10. write your question here... (optional)
+1. How long have you been employed (or were employed) at this company?
+Less than 6 months
+6 months – 1 year
+1 – 3 years
+More than 3 years
+
+2. What department do/did you work in?
+Software Development
+Customer Support
+Marketing
+Sales
+Other (please specify)
+
+3. What factors contributed most to your decision to leave (or consider leaving) the company? (Select all that apply)
+
+Compensation and benefits
+Work-life balance
+Career growth opportunities
+Management and leadership
+Workplace culture
+
+4. What changes would make you more likely to stay at the company?(Open-ended)
+
+5. How often do you feel recognized and valued for your work?
+Never
+Rarely
+Sometimes
+Often
+Always
+
+6. Would you recommend this company as a good place to work?
+Yes
+No
+Unsure
 ```
 
 ## Part B - Survey Evaluation:
@@ -71,7 +102,29 @@ Your 5-10 question survey:
 Identify and describe survey features:
 
 ```
-write your answer here
+Sample Type: Probability sampling (random selection of households from the Canadian population)
+
+Sample Size: Approximately 16,000 respondents
+
+Target Population: Canadians aged 15 and older living in private households in all provinces and territories
+
+Sampling Frame: Derived from the Canadian Labour Force Survey (LFS) and household records
+
+Survey Mode(s): Computer-assisted telephone interviews (CATI) and online surveys
+
+Timeline: Data collection took place from September to December 2018
+
+Response Rate: Approximately 45%
+
+Weights: The survey data is weighted to ensure it represents the entire Canadian population based on demographic factors
+
+Data Processing: Data validation, cleaning, and imputation techniques applied to correct missing or inconsistent responses
+
+Sources of Error: Sampling errors, non-response bias, recall bias, and social desirability bias
+
+Limitations and Known Biases: Excludes individuals living in institutions, potential underreporting of volunteer activities, and potential biases due to self-reported data
+
+
 ```
 
 ## Rubric
